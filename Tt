@@ -1,0 +1,17 @@
+char* TaoChuoiTenRieng(char *s)
+{
+	char *sdup = strdup(s);
+	strlwr(sdup);
+	int n = strlen(sdup);
+	if (n > 0)
+	{
+		if (sdup[0] >= 'a' && sdup[0] <= 'z')
+			sdup[0] = sdup[0] - 32;
+
+		for (int i = 1; i < n; i++)
+			if (sdup[i] >= 'a' && sdup[i] <= 'z' && sdup[i - 1] == ' ')
+				sdup[i] = sdup[i] - 32;
+	}
+
+	return sdup;
+}
